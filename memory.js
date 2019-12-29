@@ -8,7 +8,7 @@ let cards = [
   "geralt.png",
   "yen.png",
   "ciri.png",
-  "tris.png",
+  "triss.png",
   "yen.png",
   "iorweth.png"
 ];
@@ -68,6 +68,24 @@ c11.addEventListener("click", function() {
   revealCard(11);
 });
 
+let oneVisible = false;
+let turnCounter = 0;
+
 function revealCard(nr) {
-  alert(nr);
+  // alert(nr);
+  let cardImage = "url(img/" + cards[nr] + ")";
+
+  $("#c" + nr).css("background-image", cardImage);
+  $("#c" + nr).addClass("cardActive");
+  $("#c" + nr).removeClass("card");
+
+  if (oneVisible == false) {
+    // first card
+    oneVisible = true;
+  } else {
+    // second card
+    turnCounter++;
+    $(".score").html("Turn counter: " + turnCounter);
+    oneVisible = false;
+  }
 }
