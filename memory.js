@@ -1,16 +1,16 @@
 let cards = [
-  "ciri.png",
-  "geralt.png",
-  "jaskier.png",
-  "jaskier.png",
-  "iorweth.png",
-  "triss.png",
-  "geralt.png",
-  "yen.png",
-  "ciri.png",
-  "triss.png",
-  "yen.png",
-  "iorweth.png"
+    "ciri.png",
+    "geralt.png",
+    "jaskier.png",
+    "jaskier.png",
+    "iorweth.png",
+    "triss.png",
+    "geralt.png",
+    "yen.png",
+    "ciri.png",
+    "triss.png",
+    "yen.png",
+    "iorweth.png"
 ];
 // console.log(cards);
 
@@ -30,62 +30,79 @@ let c10 = document.getElementById("c10");
 let c11 = document.getElementById("c11");
 
 c0.addEventListener("click", function() {
-  revealCard(0);
+    revealCard(0);
 });
 c1.addEventListener("click", function() {
-  revealCard(1);
+    revealCard(1);
 });
 c2.addEventListener("click", function() {
-  revealCard(2);
+    revealCard(2);
 });
 c3.addEventListener("click", function() {
-  revealCard(3);
+    revealCard(3);
 });
 
 c4.addEventListener("click", function() {
-  revealCard(4);
+    revealCard(4);
 });
 c5.addEventListener("click", function() {
-  revealCard(5);
+    revealCard(5);
 });
 c6.addEventListener("click", function() {
-  revealCard(6);
+    revealCard(6);
 });
 c7.addEventListener("click", function() {
-  revealCard(7);
+    revealCard(7);
 });
 
 c8.addEventListener("click", function() {
-  revealCard(8);
+    revealCard(8);
 });
 c9.addEventListener("click", function() {
-  revealCard(9);
+    revealCard(9);
 });
 c10.addEventListener("click", function() {
-  revealCard(10);
+    revealCard(10);
 });
 c11.addEventListener("click", function() {
-  revealCard(11);
+    revealCard(11);
 });
 
 let oneVisible = false;
 let turnCounter = 0;
+let visible_nr;
 
 function revealCard(nr) {
-  // alert(nr);
-  let cardImage = "url(img/" + cards[nr] + ")";
+    // alert(nr);
+    let cardImage = "url(img/" + cards[nr] + ")";
 
-  $("#c" + nr).css("background-image", cardImage);
-  $("#c" + nr).addClass("cardActive");
-  $("#c" + nr).removeClass("card");
+    $("#c" + nr).css("background-image", cardImage);
+    $("#c" + nr).addClass("cardActive");
+    $("#c" + nr).removeClass("card");
 
-  if (oneVisible == false) {
-    // first card
-    oneVisible = true;
-  } else {
-    // second card
-    turnCounter++;
-    $(".score").html("Turn counter: " + turnCounter);
-    oneVisible = false;
-  }
+    if (oneVisible == false) {
+        // first card
+        oneVisible = true;
+        visible_nr = nr;
+    } else {
+        // second card
+
+        if (cards[visible_nr] == cards[nr]) {
+            // alert("match");
+            setTimeout(function() {
+                hide2Cards(nr, visible_nr), 750;
+            });
+        } else {
+            // alert("fake");
+        }
+
+        turnCounter++;
+        $(".score").html("Turn counter: " + turnCounter);
+        oneVisible = false;
+    }
+}
+
+function hide2Cards(nr1, n2) {
+    $("#c" + nr1).css("opacity", "0");
+    $("#c" + nr2).css("opacity", "0");
 }

@@ -1,60 +1,63 @@
 <!DOCTYPE html>
 <html lang="pl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta name="description" content="JS Memory Game inspired by Gwent" />
-    <meta name="keywords" content="javascript, jQuery, game, gwent, memory" />
-    <meta name="author" content="KT" />
-    <title>Gwent Memory Test</title>
-    <link rel="stylesheet" href="main.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Lobster&display=swap&subset=latin-ext"
-      rel="stylesheet"
-    />
-    <!--[if lt IE 9]>
-      <script src="bower_components/html5shiv/dist/html5shiv.js"></script>
-    <![endif]-->
-  </head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta name="description" content="JS Memory Game inspired by Gwent" />
+        <meta
+            name="keywords"
+            content="javascript, jQuery, game, gwent, memory"
+        />
+        <meta name="author" content="KT" />
+        <title>Gwent Memory Test</title>
+        <link rel="stylesheet" href="main.css" />
+        <link
+            href="https://fonts.googleapis.com/css?family=Lobster&display=swap&subset=latin-ext"
+            rel="stylesheet"
+        />
+        <!--[if lt IE 9]>
+            <script src="bower_components/html5shiv/dist/html5shiv.js"></script>
+        <![endif]-->
+    </head>
 
-  <body>
-    <header>
-      <h1>Gwent Memory Test</h1>
-      <p>
-        Inspired by
-        <a
-          href="http://www.playgwent.com/pl"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Gwent - The Witcher Card Game
-        </a>
-      </p>
-    </header>
-    <main>
-      <article>
-        <div class="board">
-          <div class="card" id="c0"></div>
-          <div class="card" id="c1"></div>
-          <div class="card" id="c2"></div>
-          <div class="card" id="c3"></div>
+    <body>
+        <header>
+            <h1>Gwent Memory Test</h1>
+            <p>
+                Inspired by
+                <a
+                    href="http://www.playgwent.com/pl"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Gwent - The Witcher Card Game
+                </a>
+            </p>
+        </header>
+        <main>
+            <article>
+                <div class="board">
+                    <div class="card" id="c0"></div>
+                    <div class="card" id="c1"></div>
+                    <div class="card" id="c2"></div>
+                    <div class="card" id="c3"></div>
 
-          <div class="card" id="c4"></div>
-          <div class="card" id="c5"></div>
-          <div class="card" id="c6"></div>
-          <div class="card" id="c7"></div>
+                    <div class="card" id="c4"></div>
+                    <div class="card" id="c5"></div>
+                    <div class="card" id="c6"></div>
+                    <div class="card" id="c7"></div>
 
-          <div class="card" id="c8"></div>
-          <div class="card" id="c9"></div>
-          <div class="card" id="c10"></div>
-          <div class="card" id="c11"></div>
+                    <div class="card" id="c8"></div>
+                    <div class="card" id="c9"></div>
+                    <div class="card" id="c10"></div>
+                    <div class="card" id="c11"></div>
 
-          <div class="score">Turn counter: 0</div>
-        </div>
-      </article>
-    </main>
-    <script src="jquery-3.4.1.min.js"></script>
-    <script src="memory.js"></script>
-  </body>
+                    <div class="score">Turn counter: 0</div>
+                </div>
+            </article>
+        </main>
+        <script src="jquery-3.4.1.min.js"></script>
+        <script src="memory.js"></script>
+    </body>
 </html>
