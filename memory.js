@@ -71,38 +71,68 @@ c11.addEventListener("click", function() {
 let oneVisible = false;
 let turnCounter = 0;
 let visible_nr;
+let lock = false;
+let pairsLeft = 6;
 
 function revealCard(nr) {
-    // alert(nr);
-    let cardImage = "url(img/" + cards[nr] + ")";
+    let opacityValue = $("#c" + nr).css("opacity");
+    // alert("opacity: " + opacityValue);
+    if (opacityValue != 0 && lock == false) {
+        lock = true;
+        // alert(nr);
+        let cardImage = "url(img/" + cards[nr] + ")";
 
-    $("#c" + nr).css("background-image", cardImage);
-    $("#c" + nr).addClass("cardActive");
-    $("#c" + nr).removeClass("card");
+        $("#c" + nr).css("background-image", cardImage);
+        $("#c" + nr).addClass("cardActive");
+        $("#c" + nr).removeClass("card");
 
-    if (oneVisible == false) {
-        // first card
-        oneVisible = true;
-        visible_nr = nr;
-    } else {
-        // second card
-
-        if (cards[visible_nr] == cards[nr]) {
-            // alert("match");
-            setTimeout(function() {
-                hide2Cards(nr, visible_nr), 750;
-            });
+        if (oneVisible == false) {
+            // first card
+            oneVisible = true;
+            visible_nr = nr;
+            lock = false;
         } else {
-            // alert("fake");
-        }
+            // second card
 
-        turnCounter++;
-        $(".score").html("Turn counter: " + turnCounter);
-        oneVisible = false;
+            if (cards[visible_nr] == cards[nr]) {
+                // alert("match");
+                setTimeout(function() {
+                    hide2Cards(nr, visible_nr);
+                }, 750);
+                lock = false;
+            } else {
+                // alert("fake");
+                setTimeout(function() {
+                    restore2Cards(nr, visible_nr);
+                }, 1000);
+                lock = false;
+            }
+
+            turnCounter++;
+            $(".score").html("Turn counter: " + turnCounter);
+            oneVisible = false;
+        }
     }
 }
 
-function hide2Cards(nr1, n2) {
+function hide2Cards(nr1, nr2) {
     $("#c" + nr1).css("opacity", "0");
     $("#c" + nr2).css("opacity", "0");
+
+    pairsLeft--;
+    if (pairsLeft == 0) {
+        $(".board").html(
+            "<h1>You win! <br>Done in " + turnCounter + " turn </h1>"
+        );
+    }
+}
+
+function restore2Cards(nr1, nr2) {
+    $("#c" + nr1).css("background-image", "url(img/karta.png)");
+    $("#c" + nr1).addClass("card");
+    $("#c" + nr1).removeClass("cardActive");
+
+    $("#c" + nr2).css("background-image", "url(img/karta.png)");
+    $("#c" + nr2).addClass("card");
+    $("#c" + nr2).removeClass("cardActive");
 }
