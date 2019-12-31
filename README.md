@@ -1,4 +1,4 @@
-# foto_website
+# Gwent Memory Test
 
 > JavaSript memory game inspired by Gwent Card Game.
 
