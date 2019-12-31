@@ -4,7 +4,7 @@
 
 ## Demo
 
-[Website](https://tarnowski-git.github.io/memory_game/)
+[Game website](https://tarnowski-git.github.io/memory_game/)
 
 ## Technologies
 
